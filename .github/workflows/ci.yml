@@ -6,13 +6,15 @@ on:
 
 jobs:
   lint:
-    checkout:
-      runs-on: ubuntu-latest
-      steps:
-        - name: syntax
-          uses: github/super-linter@v3
-          env:
-            VALIDATE_ALL_CODEBASE: false
-            DEFAULT_BRANCH: main
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: syntax
+        uses: github/super-linter@v3
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
 
