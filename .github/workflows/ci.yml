@@ -6,24 +6,12 @@ on:
 
 jobs:
   lint:
-    runs-on: python:alpine
+    runs-on: ubuntu-latest
     steps:
       - name: syntax
         uses: github/super-linter@v3
         env:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          pip install -r requirements.txt
-          pycodestyle app.py
-  # sast:
-  #   steps:
-  #     - uses: actions/setup-python@v2
-  #       with:
-  #         python-version: '3.x'
-  # test:
-  #   steps:
-  #     - uses: actions/setup-python@v2
-  #       with:
-  #         python-version: '3.x'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }
+
